@@ -19,7 +19,7 @@ cargo run -- [domain_name] [use subdomain list? (y/n)]
 
 ### Example:
 
-`cargo run -- binancefutures.com y`
+`cargo run -- binancefuture.com y`
 
 ## Note
 

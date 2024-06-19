@@ -185,12 +185,14 @@ async fn main() {
         // save results to file with domain name as filename
         let ips_filename = format!("results/{}-ips.txt", central_domain);
         let mut ips_file_handler = FileHandler::new(&ips_filename).unwrap();
+        ips_file_handler.clear().expect("[!] Failed to clear file");
         for ip in non_cloudflare_ips {
             ips_file_handler.write_line(ip).expect("[!] Failed to write to file");
         }
 
         let domains_filename = format!("results/{}-domains.txt", central_domain);
         let mut domains_file_handler = FileHandler::new(&domains_filename).unwrap();
+        domains_file_handler.clear().expect("[!] Failed to clear file");
         for domain in recursively_found_domains {
             domains_file_handler.write_line(domain).expect("[!] Failed to write to file");
         }

@@ -61,4 +61,9 @@ impl FileHandler {
     pub fn write_line(&mut self, content: String) -> io::Result<()> {
         writeln!(self.file, "{}", content)
     }
+
+    pub fn clear(&mut self) -> io::Result<()> {
+        self.file.set_len(0)?;
+        Ok(())
+    }
 }
