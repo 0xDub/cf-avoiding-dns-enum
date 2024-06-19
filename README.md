@@ -14,9 +14,13 @@ cd cf-avoiding-dns-enum
 ```
 
 ```
-cargo run -- [domain_name]
+cargo run -- [domain_name] [use subdomain list? (y/n)]
 ```
 
-### Note
+### Example:
+
+`cargo run -- binancefutures.com y`
+
+## Note
 
 - Currently AXFR is not implemented
