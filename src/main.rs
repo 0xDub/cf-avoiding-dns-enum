@@ -111,6 +111,10 @@ fn load_subdomains() -> Vec<String> {
 async fn main() {
     println!("{}[*]{} Starting Cloudflare IP Sniffer...", CL::Pink.get(), CL::End.get());
     let args: Vec<String> = env::args().skip(1).collect();
+    if args.len() != 2 {
+        println!("{}[!]{} Usage: cargo run <domain> <use_subdomains? (y/n)>", CL::DullRed.get(), CL::End.get());
+        std::process::exit(1);
+    }
     let central_domain = Name::<Vec<_>>::from_str(&args[0].to_string()).expect("Failed to parse domain name");
     let use_subdomains = args.len() > 1 && args[1] == "y";
 
